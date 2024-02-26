@@ -20,3 +20,20 @@ const fs = require('fs');
 
 // //rename the file
 // fs.renameSync('read.txt','readwrite.txt');
+
+function add(a=0,b=0){
+    return a+b;
+}
+
+function sub(a=0,b=0){
+    return a-b;
+}
+
+function mult(a=0,b=0){
+    return a*b;
+}
+
+// module.exports.add=add;
+// module.exports.sub=sub;
+
+module.exports = {add,sub,mult};
