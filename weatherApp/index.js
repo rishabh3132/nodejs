@@ -12,7 +12,7 @@ let requestVal = (tempFile, val)=>{
 }
 const server=http.createServer((req,res)=>{
     if(req.url=='/'){
-        requests('https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=d85d7fa399f3671c2de50007f94cf970')
+        requests('https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=')
         .on('data',(chunk)=>{
             console.log(JSON.parse(chunk));
             let weatherData=JSON.parse(chunk)
@@ -29,4 +29,4 @@ const server=http.createServer((req,res)=>{
         })
     }
 })
-server.listen(9000,'127.0.0.1');
+server.listen(8000,'127.0.0.1');
