@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/2ec09d86b7.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .box{
+            width: 30%;
+            margin: 10vh auto;
+            text-align: center;
+            background-color: rgb(12, 93, 159);
+            border: 2px solid blueviolet;
+            border-radius: 10px;
+        }
+        #weathericon{
+            margin: 10px;
+            font-size: 30px;
+        }
+        .info{
+            margin: 10px;
+            color: white;
+        }
+    </style>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div class="box">
+        <div id="weathericon">
+            <i class="fa-solid fa-sun" style="color:#eccc68"></i>
+        </div>
+        <div class="info">
+            <h2 class="location"><i class="fa-solid fa-street-view"></i>{%location%}, {%country%}</h2>
+            <h1 class="temp">{%temp%}</h1>
+            <h3 class="max-min">Min {%maxtemp%} || Max {%mintemp%}</h3>
+        </div>
+    </div>
+</body>
+</html>
