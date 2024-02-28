@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUOTES</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(254, 201, 201);
+        }
+        .block{
+            width: 40%;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            background-color: rgb(19, 107, 139);
+            border: 1px solid black;
+            color: white;
+        }
+        button{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background-color: crimson;
+            color: white;
+            cursor: pointer;
+        }
+        .quote{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <div class="quote"></div>
+        <button onclick="getQuotes()">New Quotes</button>
+        <button id="tweet">Tweet</button>
+    </div>
+    <script>
+        let tweet='';
+        const api='https://api.quotable.io/quotes/random';
+        const getQuotes = async () => {
+            let data=await fetch(api)
+            let quotes = await data.json();
+            tweet=quotes[0].content+' - '+quotes[0].author;
+            document.querySelector('.quote').textContent=quotes[0].content+' - '+quotes[0].author;
+        }        
+        getQuotes();
+        document.getElementById('tweet').addEventListener('click',()=>{
+            let tweetApi='https://twitter.com/intent/tweet?text='+tweet;
+            window.open(tweetApi,'_blank')
+        })
+    </script>
+</body>
+</html>
